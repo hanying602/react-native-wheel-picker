@@ -111,6 +111,14 @@ public class ReactWheelCurvedPickerManager extends SimpleViewManager<ReactWheelC
         }
     }
 
+    @ReactProp(name="fontFamily")
+    public void setLineGradientColorTo(ReactWheelCurvedPicker picker, String fontPath) {
+        if (picker != null) {
+            picker.setFontFamily(fontPath);
+            picker.invalidate();
+        }
+    }
+
     @Override
     public String getName() {
         return REACT_CLASS;

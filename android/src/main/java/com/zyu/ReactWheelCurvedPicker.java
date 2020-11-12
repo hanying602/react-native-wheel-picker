@@ -7,6 +7,7 @@ import android.graphics.Paint;
 import android.graphics.Shader;
 import android.os.SystemClock;
 import android.util.AttributeSet;
+import android.graphics.Typeface;
 
 import com.aigestudio.wheelpicker.core.AbstractWheelPicker;
 import com.aigestudio.wheelpicker.view.WheelCurvedPicker;
@@ -82,6 +83,11 @@ public class ReactWheelCurvedPicker extends WheelCurvedPicker {
     public void setLineGradientColorTo (Integer color) {
         this.isLineGradient = true;
         this.mLinegradientTo = color;
+    }
+
+    public void setFontFamily (String fontPath) {
+        Typeface typeface = Typeface.createFromAsset(context.getAssets(), fontPath);
+        setTypeface(typeface);
     }
 
     @Override
