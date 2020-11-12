@@ -13,7 +13,7 @@
   "keywords": [
     "react-native",
     "picker",
-	"wheel"
+    "wheel"
   ],
   "author": "Hilary Lin",
   "license": "MIT",
@@ -23,5 +23,10 @@
   "homepage": "https://github.com/hanying602/react-native-wheel-picker#readme",
   "peerDependencies": {
     "prop-types": "^15.6.2"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   }
 }
