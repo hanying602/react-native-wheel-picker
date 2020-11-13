@@ -23,7 +23,7 @@ import java.util.List;
 /**
  * @author <a href="mailto:lesliesam@hotmail.com"> Sam Yu </a>
  */
-public class ReactWheelCurvedPicker extends WheelCurvedPicker {
+public class ReactWheelCurvedPicker extends WheelPicker {
 
     private final EventDispatcher mEventDispatcher;
     private List<Integer> mValueData;
