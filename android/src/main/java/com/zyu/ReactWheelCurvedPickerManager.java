@@ -1,6 +1,7 @@
 package com.zyu;
 
 import android.graphics.Color;
+import android.util.Log;
 
 import com.aigestudio.wheelpicker.WheelPicker;
 import com.facebook.react.bridge.ReadableArray;
@@ -31,7 +32,7 @@ public class ReactWheelCurvedPickerManager extends SimpleViewManager<ReactWheelC
         picker.setSelectedItemTextColor(Color.WHITE);
         picker.setItemTextSize(DEFAULT_TEXT_SIZE);
         picker.setItemSpace(DEFAULT_ITEM_SPACE);
-
+        picker.setCurved(true);
         return picker;
     }
 
@@ -59,8 +60,8 @@ public class ReactWheelCurvedPickerManager extends SimpleViewManager<ReactWheelC
 
     @ReactProp(name="selectedIndex")
     public void setSelectedIndex(ReactWheelCurvedPicker picker, int index) {
-        if (picker != null && picker.getState() == WheelPicker.SCROLL_STATE_IDLE) {
-            picker.setSelectedItemPosition(index);
+        if (picker != null) {
+            picker.setSelectedItemPosition(index, false);
             picker.invalidate();
         }
     }
@@ -68,7 +69,6 @@ public class ReactWheelCurvedPickerManager extends SimpleViewManager<ReactWheelC
     @ReactProp(name="textColor", customType = "Color")
     public void setTextColor(ReactWheelCurvedPicker picker, Integer color) {
         if (picker != null) {
-            picker.setSelectedItemTextColor(color);
             picker.setItemTextColor(color);
         }
     }
@@ -84,30 +84,6 @@ public class ReactWheelCurvedPickerManager extends SimpleViewManager<ReactWheelC
     public void setItemSpace(ReactWheelCurvedPicker picker, int space) {
         if (picker != null) {
             picker.setItemSpace((int) PixelUtil.toPixelFromDIP(space));
-        }
-    }
-
-    @ReactProp(name="lineColor")
-    public void setLineColor(ReactWheelCurvedPicker picker, String color) {
-        if (picker != null) {
-            picker.setLineColor(Utils.parseColor(color));
-            picker.invalidate();
-        }
-    }
-
-    @ReactProp(name="lineGradientColorFrom")
-    public void setLineGradientColorFrom(ReactWheelCurvedPicker picker, String color) {
-        if (picker != null) {
-            picker.setLineGradientColorFrom(Utils.parseColor(color));
-            picker.invalidate();
-        }
-    }
-
-    @ReactProp(name="lineGradientColorTo")
-    public void setLineGradientColorTo(ReactWheelCurvedPicker picker, String color) {
-        if (picker != null) {
-            picker.setLineGradientColorTo(Utils.parseColor(color));
-            picker.invalidate();
         }
     }
 
