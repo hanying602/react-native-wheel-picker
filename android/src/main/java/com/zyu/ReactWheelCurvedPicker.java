@@ -9,8 +9,7 @@ import android.os.SystemClock;
 import android.util.AttributeSet;
 import android.graphics.Typeface;
 
-import com.aigestudio.wheelpicker.core.AbstractWheelPicker;
-import com.aigestudio.wheelpicker.view.WheelCurvedPicker;
+import com.aigestudio.wheelpicker.WheelPicker;
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.WritableMap;
@@ -55,21 +54,21 @@ public class ReactWheelCurvedPicker extends WheelCurvedPicker {
         });
     }
 
-    @Override
-    protected void drawForeground(Canvas canvas) {
-        super.drawForeground(canvas);
+    // @Override
+    // protected void drawForeground(Canvas canvas) {
+    //     super.drawForeground(canvas);
 
-        Paint paint = new Paint();
-        paint.setColor(this.mLineColor); // changed this from WHITE to BLACK
-        if (this.isLineGradient) {
-            int colorFrom = this.mLinegradientFrom;
-            int colorTo = this.mLinegradientTo;
-            LinearGradient linearGradientShader = new LinearGradient(rectCurItem.left, rectCurItem.top, rectCurItem.right/2, rectCurItem.top, colorFrom, colorTo, Shader.TileMode.MIRROR);
-            paint.setShader(linearGradientShader);
-        }
-        canvas.drawLine(rectCurItem.left, rectCurItem.top, rectCurItem.right, rectCurItem.top, paint);
-        canvas.drawLine(rectCurItem.left, rectCurItem.bottom, rectCurItem.right, rectCurItem.bottom, paint);
-    }
+    //     Paint paint = new Paint();
+    //     paint.setColor(this.mLineColor); // changed this from WHITE to BLACK
+    //     if (this.isLineGradient) {
+    //         int colorFrom = this.mLinegradientFrom;
+    //         int colorTo = this.mLinegradientTo;
+    //         LinearGradient linearGradientShader = new LinearGradient(rectCurItem.left, rectCurItem.top, rectCurItem.right/2, rectCurItem.top, colorFrom, colorTo, Shader.TileMode.MIRROR);
+    //         paint.setShader(linearGradientShader);
+    //     }
+    //     canvas.drawLine(rectCurItem.left, rectCurItem.top, rectCurItem.right, rectCurItem.top, paint);
+    //     canvas.drawLine(rectCurItem.left, rectCurItem.bottom, rectCurItem.right, rectCurItem.bottom, paint);
+    // }
 
     public void setLineColor(Integer color) {
         this.mLineColor = color;
@@ -90,12 +89,12 @@ public class ReactWheelCurvedPicker extends WheelCurvedPicker {
         setTypeface(typeface);
     }
 
-    @Override
-    public void setItemIndex(int index) {
-        super.setItemIndex(index);
-        unitDeltaTotal = 0;
-		mHandler.post(this);
-    }
+    // @Override
+    // public void setItemIndex(int index) {
+    //     super.setItemIndex(index);
+    //     unitDeltaTotal = 0;
+	// 	mHandler.post(this);
+    // }
 
     public void setValueData(List<Integer> data) {
         mValueData = data;
