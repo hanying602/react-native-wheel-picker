@@ -114,7 +114,7 @@ class ItemSelectedEvent extends Event<ItemSelectedEvent> {
     private final int mValue;
 
     protected ItemSelectedEvent(int viewTag,  int value) {
-        super(viewTag);
+        super(viewTag, value);
         mValue = value;
     }
 
