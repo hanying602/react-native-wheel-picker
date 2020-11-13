@@ -86,7 +86,7 @@ public class ReactWheelCurvedPicker extends WheelCurvedPicker {
     }
 
     public void setFontFamily (String fontPath) {
-        Typeface typeface = Typeface.createFromAsset(context.getAssets(), fontPath);
+        Typeface typeface = Typeface.createFromAsset(getContext().getAssets(), fontPath);
         setTypeface(typeface);
     }
 
