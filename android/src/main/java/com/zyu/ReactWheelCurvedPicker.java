@@ -31,17 +31,18 @@ public class ReactWheelCurvedPicker extends WheelPicker {
     private boolean isLineGradient = false;    // By default line color is not a gradient
     private Integer mLinegradientFrom = Color.BLACK; // Default starting gradient color
     private Integer mLinegradientTo = Color.WHITE; // Default end gradient color
+    private Integer mState = SCROLL_STATE_IDLE;
 
     public ReactWheelCurvedPicker(ReactContext reactContext) {
         super(reactContext);
         mEventDispatcher = reactContext.getNativeModule(UIManagerModule.class).getEventDispatcher();
         setOnWheelChangeListener(new OnWheelChangeListener() {
             @Override
-            public void onWheelScrolling(float deltaX, float deltaY) {
+            public void onWheelScrolled(float deltaX, float deltaY) {
             }
 
             @Override
-            public void onWheelSelected(int index, String data) {
+            public void onWheelSelected(int index) {
                 if (mValueData != null && index < mValueData.size()) {
                     mEventDispatcher.dispatchEvent(
                             new ItemSelectedEvent(getId(), mValueData.get(index)));
@@ -50,6 +51,7 @@ public class ReactWheelCurvedPicker extends WheelPicker {
 
             @Override
             public void onWheelScrollStateChanged(int state) {
+                mState = state;
             }
         });
     }
@@ -101,7 +103,7 @@ public class ReactWheelCurvedPicker extends WheelPicker {
     }
 
     public int getState() {
-        return state;
+        return mState;
     }
 }
 
